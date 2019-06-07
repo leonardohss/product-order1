@@ -11,11 +11,15 @@ namespace ProductOrder.Entities
         public DateTime Moment { get; set; }
         public OrderStatus Status = new OrderStatus();
         public List<OrderItem> Items = new List<OrderItem>();
+        public Client client = new Client();
 
         public Order() { }
 
-        public Order(DateTime moment, OrderStatus status)
+        public Order(string name, string email, DateTime birthDate, DateTime moment, OrderStatus status)
         {
+            client.Name = name;
+            client.Email = email;
+            client.BirthDate = birthDate;
             Moment = moment;
             Status = status;
         }

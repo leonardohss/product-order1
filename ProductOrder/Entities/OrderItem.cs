@@ -28,7 +28,7 @@ namespace ProductOrder.Entities
 
         public override string ToString(){
             return $"{product.Name}, ${Price}, Quantity: {Quantity}," 
-            + $"Subtotal: {SubTotal().ToString("F2")}";
+            + $" ---Subtotal: ${SubTotal().ToString("F2")}---";
         }
     }
 }

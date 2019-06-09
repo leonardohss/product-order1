@@ -22,7 +22,7 @@ namespace ProductOrder.Entities
         public override string ToString(){
             StringBuilder sb = new StringBuilder();
             sb.Append(Name);
-            sb.Append($"({BirthDate.ToString("dd/MM/yyyy")}");
+            sb.Append($" ({BirthDate.ToString("dd/MM/yyyy")})");
             sb.Append($" - {Email}");
             return sb.ToString();
         }

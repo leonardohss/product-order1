@@ -37,7 +37,10 @@ namespace ProductOrder
                 int pqtde = int.Parse(Console.ReadLine());
                 OrderItem item = new OrderItem(pname, pqtde, price);
                 order.AddItem(item);
-            } 
+            }
+
+            Console.WriteLine();
+            Console.WriteLine(order);
         }
     }
 }

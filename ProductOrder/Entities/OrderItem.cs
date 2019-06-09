@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Globalization;
 
 namespace ProductOrder.Entities
 {
@@ -23,6 +24,11 @@ namespace ProductOrder.Entities
         public double SubTotal()
         {
             return Quantity * Price;
+        }
+
+        public override string ToString(){
+            return $"{product.Name}, ${Price}, Quantity: {Quantity}," 
+            + $"Subtotal: {SubTotal().ToString("F2")}";
         }
     }
 }

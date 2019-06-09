@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using ProductOrder.Entities;
 using ProductOrder.Entities.Enums;
+using System.Globalization;
 
 namespace ProductOrder.Entities
 {
     class Order
     {
         public DateTime Moment { get; set; }
-        public OrderStatus Status = new OrderStatus();
+        public OrderStatus status = new OrderStatus();
         public List<OrderItem> Items = new List<OrderItem>();
         public Client client = new Client();
 
@@ -21,7 +22,7 @@ namespace ProductOrder.Entities
             client.Email = email;
             client.BirthDate = birthDate;
             Moment = moment;
-            Status = status;
+            this.status = status;
         }
 
         public void AddItem(OrderItem item)
@@ -44,6 +45,20 @@ namespace ProductOrder.Entities
             }
 
             return total;
+        }
+
+        public override string ToString(){
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("---ORDER SUMMARY---");
+            sb.AppendLine("Order moment: " + Moment.ToString("dd/MM/yyyy HH:mm:ss"));
+            sb.AppendLine("Order Status: " + status);
+            sb.AppendLine("Client: " + client);
+            sb.AppendLine("Order items: ");
+            foreach(OrderItem item in Items){
+                sb.AppendLine(item.ToString());
+            }
+            sb.AppendLine("Total price: " + Total().ToString("F2"));
+            return sb.ToString();
         }
     }
 }
